@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="Linux.po.domain" table="domain">
+		<id name="id">
+		</id>
+		<property name="ip"></property>
+		<property name="domain"></property>
+		<property name="pid"></property>
+	</class>	
+</hibernate-mapping>
+

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="Linux.po.mail" table="mail">
+		<id name="id">
+		</id>
+		<property name="priority"></property>
+		<property name="logo"></property>
+		<property name="server"></property>
+		<property name="pid"></property>
+	</class>	
+</hibernate-mapping>
+
