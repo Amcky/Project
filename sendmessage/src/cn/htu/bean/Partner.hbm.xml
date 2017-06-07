@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="cn.htu.bean">
+
+	<class name="Partner" table="Partner">
+
+		<id name="id" type="int">
+			<generator class="increment" />
+		</id>
+		<property name="corpid"  type="string" length="6"></property>
+		<property name="ipadress"  type="string" length="15"></property>
+		<property name="status"  type="string" length="1" ></property>
+		</class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="cn.htu.bean">
+
+	<class name="Message" table="Message">
+
+		<id name="id" type="int">
+			<generator class="increment" />
+		</id>
+
+		<property name="jshm" column="jshm" type="string" length="13"></property>
+		<property name="dxnr" column="dxnr" type="string"></property>
+		<property name="fsbj" column="fsbj" type="integer" length="1"></property>
+		<property name="fssj" column="fssj" type="string" length="40"></property>
+		<property name="zb" column="zb" type="string" length="12"></property>
+		<property name="sp" column="sp" type="string" length="6"></property>
+		<property name="status" column="status" type="string" length="1" ></property>
+		<property name="fee" column="fee" type="double"></property>
+
+		<!--声明一个外键，在one2many中设置key 关键字  -->
+
+		<many-to-one name="partner" column="partner_id" class="Partner"  lazy="false"></many-to-one>
+	    <many-to-one name="user" column="user_id" class="User"  lazy="false"></many-to-one>
+	    
+	</class>
+</hibernate-mapping>

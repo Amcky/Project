@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop.xsd
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<!-- 配置连接池: -->
+	<!-- 引入外部属性文件 -->
+	<context:property-placeholder location="classpath:jdbc.properties" />
+	<!-- 配置C3P0连接池: -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="${jdbc.driver}" />
+		<property name="jdbcUrl" value="${jdbc.url}" />
+		<property name="user" value="${jdbc.user}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
+
+	<!-- Hibernate的相关信息 -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<!-- 注入连接池 -->
+		<property name="dataSource" ref="dataSource" />
+		<!-- 配置Hibernate的其他的属性 -->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="javax.persistence.validation.mode">none</prop>
+			</props>
+		</property>
+		<!-- 配置Hibernate的映射文件 -->
+		<property name="mappingLocations">
+			<list>
+				<value>classpath:cn/htu/bean/*.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- 事务管理: -->
+	<!-- 事务管理器 -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 开启注解事务 -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<!-- 引入外部sprign配置文件 -->
+	<!-- <import resource="classpath:lty/clubServices/*/conf/*-spring.xml"/> -->
+	<bean id="messageDao" class="cn.htu.dao.impl.MessageDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- DAO配置 -->
+	<bean id="departmentdao" class="cn.htu.dao.impl.DepartmentDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="t_userDao" class="cn.htu.dao.impl.T_userDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="userDao" class="cn.htu.dao.impl.UserDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="partnerDao" class="cn.htu.dao.impl.PartnerDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="logDao" class="cn.htu.dao.impl.LogDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- Service配置 -->
+	<bean id="departmentService" class="cn.htu.service.impl.DepartmentServiceImpl">
+		<property name="departmentdao" ref="departmentdao"></property>
+	</bean>
+	<bean id="t_userService" class="cn.htu.service.impl.T_userServiceImpl">
+		<property name="userdao" ref="t_userDao"></property>
+	</bean>
+	<bean id="messageService" class="cn.htu.service.impl.MessageServiceImpl">
+		<property name="messageDao" ref="messageDao"></property>
+	</bean>
+
+	<bean id="userService" class="cn.htu.service.impl.UserServiceImpl">
+		<property name="userDao" ref="userDao"></property>
+	</bean>
+
+	<bean id="partnerService" class="cn.htu.service.impl.PartnerServiceImpl">
+		<property name="partnerDao" ref="partnerDao"></property>
+	</bean>
+
+	<bean id="logService" class="cn.htu.service.impl.LogServiceImpl"
+		scope="prototype">
+		<property name="logDao" ref="logDao"></property>
+	</bean>
+
+
+	<!-- Action配置 -->
+	<bean id="showrenyuanxinxi" class="cn.htu.action.showuserxinxi">
+		<property name="userservice" ref="t_userService"></property>
+		<property name="departmentservice" ref="departmentService"></property>
+	</bean>
+	<bean id="showbumenxinxi" class="cn.htu.action.showbumenxinxi">
+		<property name="departmentservice" ref="departmentService"></property>
+	</bean>
+
+	<bean id="saveUserAction" class="cn.htu.action.SaveUserAction"
+		scope="prototype">
+		<property name="userService" ref="userService"></property>
+	</bean>
+
+	<bean id="saveMessageAction" class="cn.htu.action.SaveMessageServiceAction"
+		scope="prototype">
+		<property name="messageService" ref="messageService"></property>
+		<property name="userService" ref="userService"></property>
+		<property name="logService" ref="logService"></property>
+	</bean>
+	<!-- 删除用户消息列表 -->
+	<bean id="deleteMessageAction" class="cn.htu.action.DeleteMessageAction"
+		scope="prototype">
+		<property name="messageService" ref="messageService"></property>
+	</bean>
+	<!-- 显示消息明细 -->
+	<bean id="showxiaoximingxi" class="cn.htu.action.showxiaoximingxiAction"
+		scope="prototype">
+		<property name="messageService" ref="messageService"></property>
+	</bean>
+	<!-- 一般用户消息表 -->
+	<bean id="listMessageAction" class="cn.htu.action.ListMessageAction"
+		scope="prototype">
+		<property name="messageService" ref="messageService"></property>
+		<property name="userService" ref="userService"></property>
+	</bean>
+
+	<!-- 管理员查看所有消息 -->
+	<bean id="adminListMessageAction" class="cn.htu.action.AdminListMessageAction"
+		scope="prototype">
+		<property name="messageService" ref="messageService"></property>
+		<property name="userService" ref="userService"></property>
+	</bean>
+
+	<bean id="listLogAction" class="cn.htu.action.ListLogAction"
+		scope="prototype">
+		<property name="logService" ref="logService"></property>
+		<property name="userService" ref="userService"></property>
+	</bean>
+
+	<bean id="checkLoginAction" class="cn.htu.action.CheckLoginAction"
+		scope="prototype">
+		<property name="userService" ref="userService"></property>
+	</bean>
+	<bean id="ajax" class="cn.htu.action.ajax" scope="prototype">
+	<property name="departmentservice" ref="departmentService"></property>
+		<property name="userservice" ref="t_userService"></property>
+	</bean>
+
+
+</beans>

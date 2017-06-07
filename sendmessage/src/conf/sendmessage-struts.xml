@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!--管理员包  -->
+	<package name="admin" namespace="/admin" extends="struts-default,json-default">
+
+
+		<interceptors>
+			<interceptor name="auth" class="cn.htu.interceptor.AuthInterceptor" />
+			<interceptor-stack name="authStack">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="auth" />
+			</interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="authStack"></default-interceptor-ref>
+
+		<global-results>
+			<result name="login">/login.jsp</result>
+			<result name="NoPre">/files/nopre.jsp</result>
+		</global-results>
+
+		<!-- 一下action是分页显示messages -->
+		<action name="toPageList1" class="adminListMessageAction"
+			method="pagerList">
+			<result name="success">/files/AllMessagesList.jsp</result>
+		</action>
+
+	</package>
+
+	<!--公共action  -->
+	<package name="public"  extends="struts-default,json-default">
+
+
+		<!-- 跳转到登录页面 -->
+		<action name="login">
+			<result>/login.jsp</result>
+		</action>
+
+		<action name="index">
+			<result>/index.html</result>
+		</action>
+
+		<!-- 退出系统 -->
+		<action name="LogoutAction">
+			<result>/files/logOut.jsp</result>
+		</action>
+		<action name="checkLogin" class="checkLoginAction" >
+			<result type="redirectAction">index</result>
+			<result name="error" type="redirectAction">login</result>
+		</action>
+		<action name="saveUser" class="saveUserAction">
+			<result name="input">/save.jsp</result>
+		</action>
+
+
+		<action name="saveMessage" class="saveMessageAction">
+			<result type="redirectAction">
+				<param name="actionName">index</param>
+			</result>
+		</action>
+
+		<!-- 一下action是分页显示messages -->
+		<action name="toPageList" class="listMessageAction" method="pagerList">
+			<result name="success">/files/MessagesList.jsp</result>
+		</action>
+
+		<!-- 一下action是分页显示logs -->
+		<action name="logList" class="listLogAction" method="pagerList">
+			<result name="success">/files/LogsList.jsp</result>
+		</action>
+		<action name="deletemessage" class="deleteMessageAction">
+			<result type="redirectAction">
+				<param name="actionName">toPageList</param>
+			</result>
+		</action>
+		<action name="showxiaoximingxi" class="showxiaoximingxi">
+			<result name="success">/files/sendxiaoximingxi.jsp</result>
+		</action>
+		<action name="showbumenxinxi" class="showbumenxinxi">
+			<result name="success">/files/listbumenxinxi.jsp</result>
+		</action>
+		<action name="showrenyuanxinxi" class="showrenyuanxinxi">
+			<result name="success">/files/listrenyuanxinxi.jsp</result>
+		</action>
+		<action name="ajax" class="ajax">
+			<result name="success">/files/listrenyuanxinxi.jsp</result>
+			<!-- <result type="json">
+                <param name="root">result</param>
+            </result> -->
+		</action>
+	</package>
+
+
+
+	<!--普通用户包  -->
+	<package name="user" namespace="/user" extends="struts-default">
+
+
+	</package>
+
+</struts>
