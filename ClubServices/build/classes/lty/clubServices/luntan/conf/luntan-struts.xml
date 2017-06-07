@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="ClubServices3" extends="struts-default" namespace="/">
+ <!-- 判断是否登录 -->
+		<interceptors>
+			<interceptor name="userInterceptor" class="userInterceptor"></interceptor>
+		</interceptors> 
+		 
+		<action name="login" class="login" method="execute">
+			<result name="success">writePosts.action</result>
+		</action>
+		
+		<action name="writePosts" class="writePosts">
+			<result name="success">/luntan/Addposts.jsp</result>
+			<result name="login">/luntan/login.jsp</result>
+			<interceptor-ref name="userInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+		<action name="showAllPostsByType" class="showAllPostsByType">
+			<result name="success">/luntan/ShowPostByType.jsp</result>
+		</action>
+		
+		
+		<action name="deleteposts" class="deleteposts">
+			<result name="success">showuserallposts.action</result>
+			<result name="login">/luntan/login.jsp</result>
+			<interceptor-ref name="userInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+		
+		<action name="addposts" class="addposts">
+			<result name="success">/luntan/Jump.jsp</result>
+			<result name="login">/luntan/login.jsp</result>
+			<interceptor-ref name="userInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+		
+		<action name="showposts" class="showposts">
+			<result name="success">/luntan/showposts.jsp</result>
+		</action>
+		
+		<action name="showuserallposts" class="showuserallposts">
+			<result name="success">/luntan/ShowUserAllPosts.jsp</result>
+				<result name="login">/luntan/login.jsp</result>
+			<interceptor-ref name="userInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+		
+		
+		<!-- 显示所有帖子 -->
+		<action name="ShowAllPosts" class="ShowAllPosts">
+			<result name="success">/luntan/ShowAllPosts.jsp</result>
+		</action>
+		
+		
+		<!-- 评论回复 -->
+		<action name="addcomment" class="addcomment">
+			<result name="success">/luntan/Jump.jsp</result>
+				<result name="login">/luntan/login.jsp</result>
+			<interceptor-ref name="userInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+		
+		<!-- 回复 -->
+		<action name="reply" class="reply">	
+			<result name="success">/luntan/Jump.jsp</result>
+			<result name="login">/luntan/login.jsp</result>
+			<interceptor-ref name="userInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+		
+	</package>
+
+</struts>

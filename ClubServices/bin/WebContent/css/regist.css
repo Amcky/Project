@@ -1,0 +1,59 @@
+@charset "utf-8";
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    color:#606060;background-color:#fafafa;
+}
+.zhuce{
+    font-size: 15px;
+    width:60%;
+    height:700px;
+    margin-top:124px;
+    margin-right: 20%;
+    margin-left:20%;
+
+    box-shadow: 10px 0px 10px #888888,
+                -10px 10px 10px #888888;
+    background-color: #ffffff;
+}
+.title{
+    height:30px;
+    margin-top:auto;
+    padding:10px;
+    text-align: left;
+    text-shadow: #919191;
+}
+.demo{
+    height:612px;
+    margin:0% 0% 0%  15%;
+
+
+}
+.login {
+    padding:5px;
+    padding-left: 10px;
+}
+
+.font_red{
+    color:#dc1f2a;
+}
+.footerInfo{
+    clear: both;
+}
+.submit{
+    background-color: #dc1f2a;
+    width: 100px;
+    border:0 none;
+    box-shadow: 3px 3px 3px #888888;
+}
+.reset{
+    background-color: #888888;
+    width: 100px;
+    border:0 none;
+    box-shadow: 3px 3px 3px #888888;
+}
+.liulananniu{
+    border:0 none;
+}

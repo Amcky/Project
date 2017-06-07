@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="lantianyun.po.Posts" table="t_talk">
+		<id name="kid">
+			<generator class="increment"></generator>
+		</id>
+		<property name="uid"></property>
+		<property name="theme"></property>
+		<property name="text"></property>
+		<property name="critique"></property>
+		<property name="stime"></property>
+		<property name="type"></property>
+		
+	</class>	
+</hibernate-mapping>
+

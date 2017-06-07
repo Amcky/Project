@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping>
+	<class name="lty.clubServices.user.entity.User" table="t_user">
+		<id name="uid">
+			<generator class="native"/>
+		</id>
+		<property name="userName"/>
+		<property name="password"/>
+		<property name="trueName"/>
+		<property name="sex"/>
+		<property name="image" />
+		<property name="phone"/>
+	    <property name="power"/>
+		<property name="descp"/>
+		<property name="squestion"/>
+		<property name="sresult"/>
+		<property name="createtime"/>
+		<property name="cid"/>
+		<property name="sno"/>
+	</class>
+</hibernate-mapping>

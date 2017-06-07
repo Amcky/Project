@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd 
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+    <!-- 配置显示所有帖子 -->
+    <bean name="ShowAllPosts" class="lty.clubServices.luntan.action.ShowAllPosts">
+    	<property name="userservice" ref="userservice"></property>
+    	<property name="postsService" ref="postservice"></property>
+    </bean>
+    <!--判断是否登录拦截器-->
+    <bean name="userInterceptor" class="lty.clubServices.luntan.Interceptor.UserInterceptor"></bean>
+    
+    <!-- 删除帖子 -->
+    <bean name="deleteposts" class="lty.clubServices.luntan.action.deletePosts">
+    	<property name="postsService" ref="postservice"></property>
+    	<property name="commentservice" ref="commentservice"></property>
+    </bean>
+    <!--写帖子-->
+    <bean name="writePosts" class="lty.clubServices.luntan.action.writePosts">
+    		<property name="postsService" ref="postservice"></property>
+    </bean>
+    <!-- 显示帖子按照类型 -->
+    <bean name="showAllPostsByType" class="lty.clubServices.luntan.action.showAllPostsByType">
+    	<property name="userservice" ref="userservice"></property>
+    	<property name="postsService" ref="postservice"></property>
+    </bean>
+    
+    <!-- 显示帖子 -->
+    <bean name="showposts" class="lty.clubServices.luntan.action.showposts">
+    	<property name="postservice" ref="postservice"></property>
+    	<property name="commentservice" ref="commentservice"></property>
+    	<property name="userservice" ref="userservice"></property>
+    </bean>
+    
+    <bean name="login" class="lty.clubServices.luntan.action.login"></bean>
+    
+   <!-- 配置Postsdao -->
+	<bean name="postsdao" class="lty.clubServices.luntan.dao.Impl.Postsdaoimp">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	 </bean>
+	
+	 <bean name="postservice" class="lty.clubServices.luntan.server.Impl.PostsServiceimp">
+	 	<property name="postsdao">
+	 		<ref bean="postsdao"/>
+	 	</property>
+	 </bean>
+	 <bean name="addposts" class="lty.clubServices.luntan.action.AddPosts">
+	 	<property name="postservice">
+	 	<ref bean="postservice"/>
+	 	</property>
+	 </bean>
+	 
+	 <bean name="showuserallposts" class="lty.clubServices.luntan.action.showUserAllPosts">
+	 	<property name="postservice">
+	 	<ref bean="postservice"/>
+	 	</property>
+	 </bean>
+	 
+	 
+	 
+	 <!-- 配置回复评论 -->
+	 
+	 <bean name="CommentDao" class="lty.clubServices.luntan.dao.Impl.CommentDaoimp">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	 </bean>
+	 <bean name="commentservice" class="lty.clubServices.luntan.server.Impl.CommentServiceimp"> 
+	 	<property name="commentdao" ref="CommentDao"></property>
+	 </bean>
+	 
+	 <bean name="addcomment" class="lty.clubServices.luntan.action.AddComment">
+	 	<property name="postsService" ref="postservice"></property>
+	 	<property name="commentservice" ref="commentservice"></property>
+	 </bean>
+	<bean name="reply" class="lty.clubServices.luntan.action.Reply">
+		<property name="commentservice" ref="commentservice"></property>
+	</bean>
+	
+	<!-- 配置user -->
+	<bean name="userdao" class="lty.clubServices.luntan.dao.Impl.UserDaoimp">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean name="userservice" class="lty.clubServices.luntan.server.Impl.UserServiceimp">
+		<property name="userdao" ref="userdao"></property>
+	</bean>
+	
+   
+</beans>

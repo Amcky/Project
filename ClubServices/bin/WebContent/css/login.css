@@ -1,0 +1,47 @@
+@charset "utf-8";
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    color:#606060;background-color:#fafafa;
+}
+.login{
+    width:60%;
+    height:230px;
+    margin-top:124px;
+    margin-right: 20%;
+    margin-left:20%;
+    box-shadow: 10px 10px 5px #888888,
+                 -10px 10px 5px #888888;
+    background-color: #ffffff;
+}
+.title{
+
+    height:30px;
+    padding:10px;
+
+    text-align: left;
+    text-shadow: #919191;
+    margin-top: -14%;
+    margin-left: 1%;
+    margin-right: 50%;
+}
+#loginForm{
+    position: absolute;
+    margin-top: 4%;
+    margin-left: 10%;
+    margin-right: 50%;
+    box-shadow: 10px 10px 5px #888888;
+
+
+}
+.submit{
+    background-color: #dc1f2a;
+    width: 100px;
+    border:0 none;
+    box-shadow: 3px 3px 3px #888888;
+}
+.footerInfo{
+    clear: both;
+}

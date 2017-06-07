@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="ClubServices" extends="struts-default" namespace="/">
+		<!-- 配置Action -->
+		<!-- 转发主页的action -->
+		<action name="goIndex" class="indexAction">
+			<result name="index">/WEB-INF/jsp/login/login.jsp</result>
+		</action>
+		<!--用户的action  -->
+		<action name="user_*" class="userAction" method="{1}">
+		    <result name="save">/WEB-INF/jsp/login/login.jsp</result>
+			<result name="success">/WEB-INF/jsp/user/login/success.jsp</result>
+			<result name="checkcodeFail">/regist.jsp</result>
+			  <result name="login">/regist.jsp</result>
+		</action>
+	     <!-- 验证码的action-->
+		<action name="checkImg" class="checkImgAction"></action>
+		<!--  上传文件的action-->
+		
+	</package>
+
+</struts>

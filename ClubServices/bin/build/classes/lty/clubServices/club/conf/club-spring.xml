@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd 
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<!-- Action的配置 =========================== -->
+
+	<!-- club的Action -->
+	<bean id="clubAction" class="lty.clubServices.club.action.ClubAction"
+		scope="prototype">
+		<property name="clubService" ref="clubService" />
+	</bean>
+
+	<bean id="clubSourceAction" class="lty.clubServices.club.action.ClubSourceAction">
+		<property name="clubSourceService" ref="clubSourceService" />
+	</bean>
+
+	<bean id="clubAdmin1Action" class="lty.clubServices.club.admin1action.ClubAdmin1Action"
+		scope="prototype">
+		<property name="clubAdmin1Service" ref="clubAdmin1Service" />
+	</bean>
+
+	<bean id="clubAdmin2Action" class="lty.clubServices.club.admin2action.ClubAdmin2Action"
+		scope="prototype">
+		<property name="clubAdmin2Service" ref="clubAdmin2Service" />
+	</bean>
+
+	<bean id="activeAction" class="lty.clubServices.club.activeaction.ActiveAction"
+		scope="prototype">
+		<property name="activeService" ref="activeService" />
+	</bean>
+	<!-- clud的Service的配置 =========================== -->
+	<bean id="clubService" class="lty.clubServices.club.service.Impl.ClubServiceImpl">
+		<property name="clubDao" ref="clubDao" />
+	</bean>
+	<bean id="clubSourceService"
+		class="lty.clubServices.club.service.Impl.ClubSourceServiceImpl">
+		<property name="clubSourceDao" ref="clubSourceDao" />
+	</bean>
+	<bean id="clubAdmin1Service"
+		class="lty.clubServices.club.admin1service.Impl.ClubAdmin1ServiceImpl">
+		<property name="clubAdmin1Dao" ref="clubAdmin1Dao" />
+	</bean>
+	<bean id="clubAdmin2Service"
+		class="lty.clubServices.club.admin2service.Impl.ClubAdmin2ServiceImpl">
+		<property name="clubAdmin2Dao" ref="clubAdmin2Dao" />
+	</bean>
+	<bean id="activeService"
+		class="lty.clubServices.club.activeservice.Impl.ActiveServiceImpl">
+		<property name="activeDao" ref="activeDao" />
+	</bean>
+	<!-- club的Dao的配置 =========================== -->
+	<bean id="clubDao" class="lty.clubServices.club.dao.Impl.ClubDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="clubSourceDao" class="lty.clubServices.club.dao.Impl.ClubSourceDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="clubAdmin1Dao" class="lty.clubServices.club.admin1dao.Impl.ClubAdmin1DaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="clubAdmin2Dao" class="lty.clubServices.club.admin2dao.Impl.ClubAdmin2DaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="activeDao" class="lty.clubServices.club.activedao.Impl.ActiveDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+</beans>

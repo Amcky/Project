@@ -1,0 +1,137 @@
+.mt1 {
+	margin:0 auto;
+    margin-top:130px;
+	width: 1080px;
+}
+
+.pleft {
+    width: 712px;
+    float: left;
+    overflow: hidden;
+}
+
+.viewbox {
+    width: 712px;
+    overflow: hidden;
+    padding-bottom: 8px;
+}
+
+.viewbox .title {
+    height: 56px;
+    line-height: 56px;
+    text-align: center;
+    overflow: hidden;
+    padding-top: 10px;
+}
+
+.viewbox .title h2 {
+    font-size: 24px;
+    color: #2b2b2b;
+}
+
+.viewbox .info {
+    height: 24px;
+    line-height: 17px;
+    text-align: center;
+    overflow: hidden;
+    color: #666;
+}
+
+.viewbox .intro {
+    width: 90%;
+    padding: 8px 16px;
+    line-height: 24px;
+    background: #f5fcee;
+    border: 1px solid #DCDDDD;
+    font-size: 14px;
+    color: #706A6A;
+    margin: 8px auto 0 auto;
+}
+
+.viewbox .content {
+    font-size: 14px;
+    padding: 12px 16px;
+    line-height: 25px;
+    color: #333;
+}
+
+.pright {
+    width:250px;
+    overflow: hidden;
+}
+
+.pright .mt1 {
+    margin-top: 0px;
+}
+
+.light {
+    background: none;
+}
+.tbox {
+    margin: 0 0 8px 0;
+    border-bottom: 1px solid #DADADA;
+    overflow: hidden;
+}
+
+.light dt {
+    height: 24px;
+    border:1px solid #DADADA;
+    overflow: hidden;
+    background: url(green_skin.png) 0 -188px repeat-x;
+    clear: both;
+}
+.light dd {
+    border-left: 1px solid #DADADA;
+    border-right: 1px solid #DADADA;
+}
+dt.light strong {
+    color: #316301;
+}
+.tbox dt strong {
+    height: 24px;
+    line-height: 24px;
+    padding-left: 8px;
+    padding-right: 4px;
+    display: block;
+    float: left;
+    letter-spacing: 1px;
+}
+
+.d4 {
+    padding: 0px 0px;
+}
+.light {
+    background: none;
+}
+ul {
+    list-style: none;
+	padding: 4px 0px;
+	clear: right;
+}
+.d4 li {
+    padding: 4px 8px;
+    overflow: hidden;
+}
+.d4 li a {
+    display: block;
+    line-height: 23px;
+    overflow: hidden;
+    text-indent: 14px;
+    background:url(ico-3.gif) 4px 9px no-repeat;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

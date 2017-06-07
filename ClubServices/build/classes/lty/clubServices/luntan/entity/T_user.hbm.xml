@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="lty.clubServices.luntan.entity.T_user" table="tt_user">
+		<id name="uid"></id>
+		<property name="username"></property>
+		<property name="password"></property>
+		<property name="truename"></property>
+		<property name="sex"></property>
+		<property name="createtime"></property>
+		<property name="phone"></property>
+		<property name="power"></property>
+		<property name="descp"></property>
+		<property name="squestion"></property>
+		<property name="sresult"></property>
+		<property name="image"></property>
+		<property name="sno"></property>
+		<property name="cid"></property>
+		
+	</class>	
+</hibernate-mapping>
+

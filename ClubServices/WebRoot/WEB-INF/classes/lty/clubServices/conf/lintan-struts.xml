@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="ClubServices" extends="struts-default" namespace="/">
+		<interceptors>
+			<interceptor name="userInterceptor" class="lty.clubServices.Interceptor.UserInterceptor"></interceptor>
+		</interceptors>
+		
+		<action name="login" class="lantianyun.action.login">
+			<result name="success">/index.jsp</result>
+		</action>
+		
+		<action name="addposts" class="addposts">
+			<result name="success">/index.jsp</result>
+			<result name="login">/login.jsp</result>
+			<interceptor-ref name="userInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+		
+		<action name="showposts" class="showposts">
+			<result name="success">/showposts.jsp</result>
+		</action>
+		
+		
+		<!-- 显示所有帖子 -->
+		<action name="ShowAllPosts" class="ShowAllPosts">
+			<result name="success">/ShowAllPosts.jsp</result>
+		</action>
+	</package>
+
+</struts>

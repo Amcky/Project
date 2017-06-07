@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="lty.clubServices.club.entity.Active" table="t_active">
+		<id name="aid">
+			<generator class="native"></generator>
+		</id>
+		<property name="aname" />
+		<property name="des" />
+		<property name="time" />
+		<property name="image" />
+	</class>
+</hibernate-mapping>

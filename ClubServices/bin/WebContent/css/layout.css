@@ -1,0 +1,447 @@
+*{
+	padding:0px;
+	margin:0px;
+}
+html{
+	background:#FFF;
+}
+body{
+	font:12px Verdana,Arial,Tahoma;
+}
+img{
+	border:none;
+}
+
+a{
+	color:#256EB1;
+	text-decoration:none;
+}
+a:hover{
+	color:red;
+	text-decoration:underline;
+}
+ul{
+	list-style:none;
+}
+input,select,button{
+	font:12px Verdana,Arial,Tahoma;
+	vertical-align:middle;
+}
+/*---------- stock ---------*/
+.center{
+	margin:0px auto;
+}
+.w960{
+	width:970px;
+	/*position:relative;*/
+}
+.pright{
+	width:250px;
+	float:left;
+	margin-left:20px;
+	margin-top:40px;
+	}
+.pright .infos_userinfo {
+	margin-bottom: 0px;
+}
+.mt1{/* ( margin-top * 1 ) */
+	margin-top:8px;
+}
+.pright .mt1{
+	margin-top:0px;
+}
+.mt2{/* ( margin-top * 2 ) */
+	margin-top:16px;
+}
+.clear{
+	overflow:hidden;
+}
+
+
+
+.btn { display: block; position: relative; background: #aaa; padding: 5px; float: left; color: #fff; text-decoration: none; cursor: pointer; }
+.btn * { font-style: normal; background-image: url(http://www.java1234.com/btn2.png); background-repeat: no-repeat; display: block; position: relative; }
+.btn i { background-position: top left; position: absolute; margin-bottom: -5px;  top: 0; left: 0; width: 5px; height: 5px; }
+.btn span { background-position: bottom left; left: -5px; padding: 0 0 5px 10px; margin-bottom: -5px; }
+.btn span i { background-position: bottom right; margin-bottom: 0; position: absolute; left: 100%; width: 10px; height: 100%; top: 0; }
+.btn span span { background-position: top right; position: absolute; right: -10px; margin-left: 10px; top: -5px; height: 0; }
+
+* html .btn span,
+* html .btn i { float: left; width: auto; background-image: none; cursor: pointer; }
+
+.btn.blue { background: #2ae; }
+.btn.green { background: #9d4; }
+.btn.pink { background: #e1a; }
+.btn:hover { background-color: #a00; }
+.btn:active { background-color: #444; }
+.btn[class] {  background-image: url(http://www.java1234.com/shade.png); background-position: bottom; }
+
+* html .btn { border: 3px double #aaa; }
+* html .btn.blue { border-color: #2ae; }
+* html .btn.green { border-color: #9d4; }
+* html .btn.pink { border-color: #e1a; }
+* html .btn:hover { border-color: #a00; }
+
+
+
+.listbox{
+	width:720px;
+	float:left;
+	margin:160px 0 40px 150px;
+	overflow:hidden;
+}
+.listbox dl{
+	width:352px;
+	margin-right:8px;
+	margin-top:2px;
+	float:left;
+}
+.listbox ul a{
+	color:#666;
+}
+
+
+
+.tbox{
+	border-bottom:1px solid #DADADA;
+	margin-bottom:20px;
+	overflow:hidden;
+	background:url(../img/green_skin.png) 0 -294px repeat-x;
+}
+.tbox dt{
+	height:24px;
+	border:1px solid #DADADA;
+	overflow:hidden;
+	clear:both;
+}
+.tbox dd{
+	border-left:1px solid #DADADA;
+	border-right:1px solid #DADADA;
+	/*padding:4px 4px 0px;*/
+	overflow:hidden;
+}
+
+.tbox dt strong{
+	height:24px;
+	line-height:24px; !important;line-height:25px;
+	padding-left:8px;
+	padding-right:4px;
+	display:block;
+	float:left;
+	color:#316301;
+	letter-spacing:1px;
+}
+.tbox dt strong a{
+	color:#316301;
+}
+.tbox dt strong a:hover{
+	color:#596F37;
+	text-decoration:none;
+}
+.tbox dt span.more{
+	float:right;
+	position:relative;
+	line-height:25px;
+	padding-right:8px;
+	color:#596F37;
+}
+.tbox dt span.more a{
+	color:#596F37;
+	text-decoration:none;
+}
+.tbox dt span.more a:hover{
+	color:#ff3333;
+	text-decoration:underline;
+}
+.tbox dt span.label{
+	height:25px;
+	float:right;
+	overflow:hidden;
+	padding-right:1px;
+	padding-top:2px;
+}
+.tbox dt span.label a{
+	height:26px;
+	display:block;
+	padding:0px 7px 0px 8px;
+	line-height:26px;
+	border-left:1px solid #DADADA;
+	float:left;
+	color:#666;
+	text-decoration:none;
+	overflow:hidden;
+	letter-spacing:1px;
+}
+.tbox dt span.label a:hover{
+	color:#360;
+}
+.tbox dt span.label a.thisclass{
+	background:#FFF;
+	color:#333;
+	border-top:3px solid #DADADA;
+}
+
+.tbox dt span.linklabel{
+	float:left;
+	margin-left:10px;
+	overflow:hidden;
+	padding-right:1px;
+	padding-top:2px;
+}
+.tbox dt span.linklabel a{
+	height:20px;
+	display:block;
+	padding:0px 7px 0px 8px;
+	margin:0 5px;
+	line-height:20px;
+	border-left:1px solid #DADADA;
+	border-top:1px solid #DADADA;
+	border-right:1px solid #DADADA;
+	float:left;
+	color:#666;
+	text-decoration:none;
+	overflow:hidden;
+	letter-spacing:1px;
+}
+.tbox dt span.linklabel a:hover{
+	color:#360;
+}
+.tbox dt span.linklabel a.thisclass{
+	background:#FFF;
+	color:#333;
+}
+
+/* 较重颜色的Box */
+.light {
+	background:none;
+}
+.light dt{
+	height:24px;
+	border:1px solid #DADADA;
+	overflow:hidden;
+	background:url(green_skin.png) 0 -188px repeat-x;
+	clear:both;
+}
+.light dd{
+	border-left:1px solid #DADADA;
+	border-right:1px solid #DADADA;
+	/*padding:4px 4px 0px;*/
+	overflow:hidden;
+}
+dt.light strong{
+	color:#316301;
+}
+
+
+.c1{/* 纯文本链接列表 */
+	padding:4px 0px;
+	clear:right;
+}
+.c1 li{
+	height:27px;
+	line-height:27px;
+	overflow:hidden;
+	padding-left:16px;
+	background:url(ico-2.gif) 7px 11px no-repeat;
+}
+.c1 a{
+	color:#585858;
+}
+
+.c2{/* 水平切分的两列纯文本链接列表 */
+	width:100%;
+	padding:4px 0px;
+	overflow:hidden;
+	clear:both;
+}
+.c2 li{
+	width:44%;
+	margin-right:1%;
+	float:left;
+	height:27px;
+	line-height:27px;
+	overflow:hidden;
+	padding-left:16px;
+	background:url(ico-2.gif) 7px 11px no-repeat;
+}
+
+/*---------- d : 附加信息列表 ---------*/
+.d1{/* 前置时间日期的小列表 */
+	padding:4px 0px;
+}
+.d1 li{
+	height:27px;
+	line-height:27px;
+	overflow:hidden;
+}
+.d1 li span{
+	color:#ABA9A2;
+	margin-right:5px;
+	float:left;
+}
+.d1 li a{
+	
+}
+
+.f4{/*友情链接(图片)专用*/
+
+}
+.f4 li{
+	width:94px;
+	height:37px;
+	display:block;
+	float:left;
+	overflow:hidden;
+	margin:10px 12px 2px 8px;
+}
+.f4 li a{
+	width:88px;
+	height:31px;
+	overflow:hidden;
+	float:left;
+	border:3px solid #FFF;
+}
+.f4 li a:hover{
+	border:3px solid #EEE;
+}
+.f5{/*友情链接(文字)专用*/
+	width:100%;
+	overflow:hidden;
+	clear:both;
+	padding-bottom:10px;
+	height:40px;
+}
+.f5 li{
+	float:left;
+	line-height:14px;
+	padding:8px 10px 0px;
+	white-space:nowrap;
+}
+.f5 li a{
+	color:#666666;
+	float:left;
+}
+.f5 li a img{
+	border:3px solid #EEE;
+}
+
+.f6{/* 链接横排自适应列表 */
+	width:100%;
+	overflow:hidden;
+	clear:both;
+	padding-bottom:10px;
+}
+.f6 li{
+	float:left;
+	line-height:14px;
+	padding:8px 10px 0px;
+	white-space:nowrap;
+}
+.f6 li a{
+	color:#666666;
+	float:left;
+}
+
+ 
+.ico2 li{
+	padding-left:16px;
+	background:url(ico-2.gif) 6px 11px no-repeat;
+}
+.ico3 li{
+	padding-left:16px;
+	background:url(ico-3.gif) 7px 11px no-repeat;
+}
+
+li.dotline {
+	height:26px;
+	line-height:26px;
+}
+.c_page{
+	text-align:right;
+	line-height:25px;
+	height:25px;
+	background:#FBFBFB;
+	border-top:1px solid #EAEAEA;
+	}
+.c_page a{
+	text-align:center;
+	background:url(../images/page_bg.gif) #FBFBFB no-repeat;
+	width:16px;
+	height:15px;
+	line-height:15px;
+	display:inline-block;
+	margin-top:5px;
+	color:#000;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:9px;
+	}
+.c_page a:hover{
+	text-decoration:none;
+	}
+.c_page a.thislink{
+	color:#7A2334;
+	}
+    
+    
+    
+/*---------- base ---------*/
+*{
+	padding:0px;
+	margin:0px;
+}
+html{
+	background:#FFF;
+}
+body{
+	font:12px Verdana,Arial,Tahoma;
+}
+img{
+	border:none;
+}
+
+a{
+	color:#256EB1;
+	text-decoration:none;
+}
+a:hover{
+	color:red;
+	text-decoration:underline;
+}
+ul{
+	list-style:none;
+}
+input,select,button{
+	font:12px Verdana,Arial,Tahoma;
+	vertical-align:middle;
+}
+
+/*---------- stock ---------*/
+.center{
+	margin:0px auto;
+}
+.w960{
+	width:970px;
+	/*position:relative;*/
+}
+.pright{
+	width:250px;
+	float:left;
+	margin-left:20px;
+	margin-top:200px;
+	}
+.pright .infos_userinfo {
+	margin-bottom: 0px;
+}
+.mt1{/* ( margin-top * 1 ) */
+	margin-top:8px;
+}
+.pright .mt1{
+	margin-top:0px;
+}
+.mt2{/* ( margin-top * 2 ) */
+	margin-top:16px;
+}
+.clear{
+	overflow:hidden;
+}
+

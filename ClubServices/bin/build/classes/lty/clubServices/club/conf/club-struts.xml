@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="ClubServices" extends="struts-default"
+		namespace="/">
+		<!-- 配置Action -->
+		<action name="club_*" class="clubAction" method="{1}">
+			<result name="success">/club/club.jsp</result>
+		</action>
+		<action name="clubsource_*" class="clubSourceAction" method="{1}">
+			<result name="upLoad">/club/usuccess.jsp</result>
+			<result name="downLoad">/club/dsuccess.jsp</result>
+		</action>
+		<action name="clubadmin1_*" class="clubAdmin1Action" method="{1}">
+			<result name="success">/club/clubAdmin1index.jsp</result>
+			<result name="updateSuccess">/club/clubAdmin1UptateSuccess.jsp
+			</result>
+		</action>
+		<action name="clubadmin2_*" class="clubAdmin2Action" method="{1}">
+		<result name="saveSuccess">/club/clubAdmin2SaveSuccess.jsp</result>
+			<result name="success">/club/clubAdmin2index.jsp</result>
+			<result name="updateSuccess">/club/clubAdmin2UptateSuccess.jsp
+			</result>
+			<result name="deleteSuccess">/club/clubAdmin2DeleteSuccess.jsp</result>
+		</action>
+		<action name="clubactive_*" class="activeAction" method="{1}">
+		    <result name="addActive">/club/clubActiveSaveSuccess.jsp</result>
+		    <result name="success">/club/clubactive.jsp</result>
+		    <result name="updateSuccess">/club/clubActiveUptateSuccess.jsp</result>
+		    <result name="deleteSuccess">/club/clubActiveDeleteSuccess.jsp</result>
+		</action>
+	</package>
+</struts>
